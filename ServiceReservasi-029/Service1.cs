@@ -114,6 +114,14 @@ namespace ServiceReservasi_029
                 com.ExecuteNonQuery();
                 connection.Close();
                 a = "sukses";
+
+                string sql2 = "update dbo.lokasi set Kuota = Kuota - " + JumlahPemesanan + "where ID_lokasi '" + IDLokasi + "'";
+                connection = new SqlConnection(constring);
+                com = new SqlCommand(sql2, connection);
+                connection.Open();
+                com.ExecuteNonQuery();
+                connection.Close();
+                a = "sukses";
             }
             catch (Exception es)
             {
